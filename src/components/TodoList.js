@@ -1,12 +1,13 @@
 import Todo from "./Todo";
 
 const TodoList = (props) => {
-  console.log(props.todo);
   return (
     <div className="todo-container">
       <ul className="todo-list">
-        {props.todos.map(todo => <Todo key={todo.id} text={todo.text}/>)}
-        <Todo/>
+        {
+          props.todos.map(todo => 
+          <Todo setTodos={props.setTodos} key={todo.id} todo={todo} text={todo.text} todos={props.todos}/>)
+        }
       </ul>
     </div>
   );
